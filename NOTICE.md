@@ -23,7 +23,7 @@ Copyright (c) 2026 dsh-pet-android contributors — 见 [LICENSE](LICENSE)。
   - `app/src/main/assets/pet/renderer.js`
   - `app/src/main/assets/pet/shared-core.js`（由上游 `src/shared` 构建出的 IIFE）
 
-## 3. 上游美术素材（**禁止商用**，不在本仓库中分发）
+## 3. 上游美术素材（**禁止商用**）
 
 上游 README「许可」明确写明：
 
@@ -32,20 +32,22 @@ Copyright (c) 2026 dsh-pet-android contributors — 见 [LICENSE](LICENSE)。
 > - 二次创作约定：基于本项目的衍生 / 改版 / 换皮作品，在任何介绍、展示、分发该作品的地方，
 >   须附上原作者 GitHub 地址：<https://github.com/PC2005-cloud/dsh-pet>
 
-涉及的素材包括：`dsh-pet/assets/webm`（动画）、`dsh-pet/assets/memes`（表情包）、
-`dsh-pet/assets/pic`（光标/通知图标）、`dsh-pet/assets/config.jsonc`（默认配置）、
-`dsh-pet/prompts`（提示词配方）与 `video/` 源视频。
+本仓库包含的素材：`app/src/main/assets/pet/webm`（动画，构建期由上游 WebM 转码为
+RGB+alpha 并排 H.264）、`memes`（表情包）、`pic`（光标图标）、`config.json`（由上游
+`assets/config.jsonc` 经上游合并逻辑生成）。这些属于上游条款允许的「开源使用」。
 
-- 本仓库**不包含**上述文件；`tools/fetch_upstream.sh` 会在构建时从上游克隆并转码。
-- 构建产物（APK）中会包含这些素材的转码结果，因此**构建产物的使用同样受"禁止商用"约束**。
-- 若要商用，请直接联系上游作者取得素材授权，或改用自己拥有权利的素材
+- **禁止商用**：付费分发、付费社群、广告变现、随硬件捆绑销售等任何商业用途均超出授权。
+- 若要商用，请联系上游作者取得素材授权，或改用自己拥有权利的素材
   （`tools/pack_alpha.sh` 可直接把自己的透明动画转成所需格式）。
+- `tools/fetch_upstream.sh` 可从上游重新生成全部素材（换素材/升级上游时用）。
 
 ## 4. 字体
 
-上游随仓库分发 `上首软糖体.ttf`。该字体的商业使用授权需另行确认，因此**本仓库不包含它，默认构建也不会带上**
-（`WITH_FONT=0`），运行时会回退到系统字体。若你已取得授权，可用 `WITH_FONT=1` 让脚本从上游拷贝，
-或自行放入 `app/src/main/assets/pet/fonts/`。
+上游随仓库分发 `上首软糖体.ttf`，该字体授权不明，**本仓库不包含它**。
+
+气泡字体改用 **站酷快乐体 ZCOOL KuaiLe**（Google Fonts，SIL Open Font License 1.1），
+文件 `app/src/main/assets/pet/fonts/ui.ttf`，许可全文 `licenses/ZCOOLKuaiLe-OFL.txt`。
+OFL 允许自由使用、修改与再分发（不得单独售卖字体本身）。
 
 ## 5. 运行时依赖
 

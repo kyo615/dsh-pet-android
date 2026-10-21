@@ -46,7 +46,16 @@ public final class LocalServer {
         this.ctx = ctx.getApplicationContext();
         try {
             String[] fonts = ctx.getAssets().list("pet/fonts");
-            if (fonts != null && fonts.length > 0) fontAsset = "pet/fonts/" + fonts[0];
+            // 自带字体优先（构建里放的是 OFL 授权的 ui.ttf）；否则用目录里的第一个
+            if (fonts != null) {
+                for (String f : fonts) {
+                    if ("ui.ttf".equals(f)) {
+                        fontAsset = "pet/fonts/" + f;
+                        break;
+                    }
+                }
+                if (fontAsset == null && fonts.length > 0) fontAsset = "pet/fonts/" + fonts[0];
+            }
         } catch (IOException ignored) {
         }
     }

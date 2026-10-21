@@ -35,10 +35,12 @@ composites RGB+alpha video in WebGL because Android WebView drops the alpha plan
 | 安卓壳（Java、悬浮窗、触摸、AI、设置页） | 本仓库 | MIT |
 | 渲染层 `index.html / sprite.js / events.js / constants.js / renderer.js / shared-core.js` | 上游 dsh-pet | MIT |
 | 动画 / 表情包 / 提示词 / 源视频 | 上游 dsh-pet | **允许开源使用，禁止商用** |
-| 字体（上首软糖体） | 上游 dsh-pet | 本仓库**不包含**，商用请自行确认字体授权 |
+| 气泡字体 站酷快乐体 ZCOOL KuaiLe | Google Fonts | SIL OFL 1.1（可自由再分发） |
 
-本仓库**不包含任何美术素材**：`tools/fetch_upstream.sh` 会克隆上游仓库并在构建时转码生成，
-它们不会进入 git 历史。这样仓库本身只分发 MIT 代码，美术素材的授权责任边界清楚。
+动画与表情包随仓库一起分发（`app/src/main/assets/pet/webm`、`memes`、`pic`），
+这是上游素材条款允许的「开源使用」；**任何商业用途都不在授权范围内**。
+仓库不分发上游的「上首软糖体」字体（授权不明），气泡字体用 OFL 授权的站酷快乐体替代，
+字体许可全文见 `licenses/ZCOOLKuaiLe-OFL.txt`。
 
 ## 构建
 
@@ -48,10 +50,11 @@ composites RGB+alpha video in WebGL because Android WebView drops the alpha plan
 git clone https://github.com/kyo615/dsh-pet-android.git
 cd dsh-pet-android
 
-# 1) 拉取上游素材并转码（约 2 分钟，产出 app/src/main/assets/pet/{webm,memes,pic,fonts,config.json}）
-bash tools/fetch_upstream.sh
+# 素材已随仓库提供，直接构建即可。
+# 想从上游重新生成（或替换成自己的动画）时再跑：
+#   bash tools/fetch_upstream.sh
 
-# 2) 构建
+# 构建
 export JAVA_HOME=/path/to/jdk-17
 export ANDROID_HOME=/path/to/android-sdk
 gradle :app:assembleRelease
@@ -129,8 +132,8 @@ tools/
 - **二次创作约定**（上游要求）：基于该项目的衍生/改版/换皮作品，在**任何介绍、展示、分发的地方**
   都需要附上作者仓库地址 <https://github.com/PC2005-cloud/dsh-pet>。本项目的设置页「关于 →
   开源许可与致谢」和本 README 都已保留该署名。
-- **字体**：默认构建**不包含**上游字体（`WITH_FONT=1` 才会从上游带上），运行时会回退到系统字体。
-  上首软糖体的商用授权需自行确认；如已获授权，执行 `WITH_FONT=1 bash tools/fetch_upstream.sh` 即可。
+- **字体**：仓库自带站酷快乐体（SIL OFL 1.1，可自由使用与再分发，许可全文见
+  `licenses/ZCOOLKuaiLe-OFL.txt`）。上游的「上首软糖体」授权不明，仓库与构建都不包含它。
 
 ## 致谢
 

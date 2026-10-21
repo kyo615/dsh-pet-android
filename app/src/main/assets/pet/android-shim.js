@@ -360,6 +360,26 @@
     }
   };
 
+  // ---------- 字体：用自带 OFL 字体（ZCOOL KuaiLe）覆盖上游同族名 ----------
+  // 上游 renderer 会在启动时注入 @font-face{family:'ShangshouSoftCandy'; src:/font/上首软糖体.ttf}。
+  // 这里在它之后追加一条同名声明（CSS 规范：同族同字重后声明者生效），指向我们自带的可再分发字体。
+  (function () {
+    function apply() {
+      try {
+        var st = document.createElement('style');
+        st.textContent =
+          '@font-face{font-family:"ShangshouSoftCandy";src:url("' +
+          BASE +
+          '/font/ui.ttf") format("truetype");font-display:swap;font-weight:400}';
+        document.head.appendChild(st);
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    if (document.readyState === 'complete') setTimeout(apply, 0);
+    else window.addEventListener('load', function () { setTimeout(apply, 0); });
+  })();
+
   // ---------- 渲染：WebGL 合成 RGB + alpha ----------
   // 素材是「左 480×270 彩色 + 右 240×135 灰度 alpha」的一张 H.264。这里每帧把视频帧上传成纹理，
   // 着色器用右半的亮度当 alpha 输出（canvas 本身保持 premultiplied alpha，所以透明区真的透明）。

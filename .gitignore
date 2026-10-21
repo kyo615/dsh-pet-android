@@ -13,12 +13,8 @@ dist/
 *.jks
 *.keystore
 
-# 构建时从上游拉取的素材（不进仓库，见 tools/fetch_upstream.sh）
-app/src/main/assets/pet/webm/
-app/src/main/assets/pet/memes/
-app/src/main/assets/pet/pic/
-app/src/main/assets/pet/fonts/
-app/src/main/assets/pet/config.json
+# 上游字体（商业授权待确认）不进仓库；气泡字体用 licenses/ 里的 OFL 字体
+app/src/main/assets/pet/fonts/上首软糖体.ttf
 
 # 编辑器 / 系统
 .idea/
