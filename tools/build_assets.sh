@@ -6,7 +6,10 @@ set -e
 UP=${UPSTREAM:-/tmp/dshpet3/dsh-pet}
 ASSETS=$(cd "$(dirname "$0")/.." && pwd)/app/src/main/assets/pet
 mkdir -p "$ASSETS/webm" "$ASSETS/memes" "$ASSETS/fonts" "$ASSETS/pic"
-cp "$UP"/assets/fonts/*.ttf "$ASSETS/fonts/"
+# 字体默认不带（上首软糖体的商用授权需自行确认）；确有权使用再 WITH_FONT=1
+if [ "${WITH_FONT:-0}" = "1" ]; then
+  cp "$UP"/assets/fonts/*.ttf "$ASSETS/fonts/" 2>/dev/null || true
+fi
 cp "$UP"/assets/memes/*.png "$ASSETS/memes/"
 cp "$UP"/assets/pic/cursor-grab.png "$UP"/assets/pic/cursor-grabbing.png "$ASSETS/pic/"
 SRC="$UP/assets/webm" OUT="$ASSETS/webm" bash "$(dirname "$0")/pack_alpha.sh"

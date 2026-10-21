@@ -43,8 +43,9 @@ Copyright (c) 2026 dsh-pet-android contributors — 见 [LICENSE](LICENSE)。
 
 ## 4. 字体
 
-上游随仓库分发 `上首软糖体.ttf`。该字体的商业使用授权需另行确认，**本仓库不包含、构建脚本也不下载**
-该字体（缺失时回退系统字体）。若你已取得授权，可自行放入 `app/src/main/assets/pet/fonts/`。
+上游随仓库分发 `上首软糖体.ttf`。该字体的商业使用授权需另行确认，因此**本仓库不包含它，默认构建也不会带上**
+（`WITH_FONT=0`），运行时会回退到系统字体。若你已取得授权，可用 `WITH_FONT=1` 让脚本从上游拷贝，
+或自行放入 `app/src/main/assets/pet/fonts/`。
 
 ## 5. 运行时依赖
 
