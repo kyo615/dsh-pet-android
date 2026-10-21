@@ -4,6 +4,8 @@
 > 透明置顶、拖动甩抛、长按菜单、100+ 段手绘风动画，可选接自己的 AI 接口做碎碎念与对话。
 >
 > **非官方移植**，与上游作者无隶属关系。代码 MIT，美术素材的授权见 [授权](#授权) 一节。
+>
+> 仓库：<https://github.com/kyo615/dsh-pet-android>
 
 <sub>English: an unofficial Android port of the open-source desktop pet *dsh-pet*. Transparent always-on-top
 overlay, 106 hand-drawn animations, drag/throw physics, long-press menu, optional OpenAI-compatible AI for
@@ -43,7 +45,7 @@ composites RGB+alpha video in WebGL because Android WebView drops the alpha plan
 前置：JDK 17、Android SDK 35、Gradle 8.x/9.x、`git`、`ffmpeg`（需带 libvpx-vp9 / libx264）、`bun`。
 
 ```bash
-git clone https://github.com/<you>/dsh-pet-android.git
+git clone https://github.com/kyo615/dsh-pet-android.git
 cd dsh-pet-android
 
 # 1) 拉取上游素材并转码（约 2 分钟，产出 app/src/main/assets/pet/{webm,memes,pic,fonts,config.json}）

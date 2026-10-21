@@ -25,3 +25,5 @@ app/src/main/assets/pet/config.json
 *.iml
 .DS_Store
 .upstream/
+.config/
+.local/
