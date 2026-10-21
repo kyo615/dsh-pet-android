@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 占位图标（不包含任何第三方美术素材）：运行时可用自己的图标替换本文件 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#4C6FFF"
+        android:pathData="M0,0h108v108h-108z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M28,54c0,-11 13,-20 27,-20 9,0 16,4 20,9l13,-8v38l-13,-8c-4,5 -11,9 -20,9 -14,0 -27,-9 -27,-20z" />
+    <path
+        android:fillColor="#4C6FFF"
+        android:pathData="M43,49a3.2,3.2 0,1 0,0.1 0z" />
+</vector>

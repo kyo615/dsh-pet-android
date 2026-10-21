@@ -1,0 +1,27 @@
+# 构建产物
+.gradle/
+build/
+app/build/
+local.properties
+dist/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# 签名材料（本仓库不提供任何密钥）
+*.jks
+*.keystore
+
+# 构建时从上游拉取的素材（不进仓库，见 tools/fetch_upstream.sh）
+app/src/main/assets/pet/webm/
+app/src/main/assets/pet/memes/
+app/src/main/assets/pet/pic/
+app/src/main/assets/pet/fonts/
+app/src/main/assets/pet/config.json
+
+# 编辑器 / 系统
+.idea/
+*.iml
+.DS_Store
+.upstream/
